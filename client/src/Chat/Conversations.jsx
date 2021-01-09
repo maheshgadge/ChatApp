@@ -28,8 +28,19 @@ const useStyles = makeStyles((theme) => ({
   list: {
     maxHeight: "calc(100vh - 112px)",
     overflowY: "auto",
+    backgroundColor: "white"
+  },
+  avatarBackground: {
+    backgroundColor: randomColor()
   },
 }));
+
+function randomColor() {
+  let hex = Math.floor(Math.random() * 0xFFFFFF);
+  let color = "#" + hex.toString(16);
+
+  return color;
+}
 
 const Conversations = (props) => {
   const classes = useStyles();
@@ -65,8 +76,6 @@ const Conversations = (props) => {
     };
   }, []);
 
-  console.log(conversations, newConversation);
-
   return (
     <List className={classes.list}>
       <ListItem
@@ -97,7 +106,7 @@ const Conversations = (props) => {
               }}
             >
               <ListItemAvatar>
-                <Avatar>
+                <Avatar className={classes.avatarBackground}>
                   {commonUtilites.getInitialsFromName(
                     handleRecipient(c.recipientObj).name
                   )}

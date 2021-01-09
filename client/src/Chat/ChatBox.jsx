@@ -25,6 +25,7 @@ import { authenticationService } from "../Services/authenticationService";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100%",
+    backgroundImage: 'url("/background.jpg")'
   },
   headerRow: {
     maxHeight: 60,
@@ -65,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
   inputRow: {
     display: "flex",
     alignItems: "flex-end",
+    backgroundColor: "white"
   },
   form: {
     width: "100%",
@@ -96,7 +98,6 @@ const ChatBox = (props) => {
 
   let chatBottom = useRef(null);
   const classes = useStyles();
-  console.log(typeof messages);
 
   useEffect(() => {
     reloadMessages();
@@ -138,8 +139,6 @@ const ChatBox = (props) => {
       });
     }
   };
-  console.log(messages, typeof messages);
-  messages.map((m) => (console.log(m._id)));
 
   return (
     <Grid container className={classes.root}>

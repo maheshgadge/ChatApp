@@ -14,6 +14,9 @@ import history from '../Utilities/history';
 import logo from './logo.png';
 
 const useStyles = makeStyles(theme => ({
+    color:{
+        backgroundColor : '#435A64'
+    },
     root: {
         flexGrow: 1,
     },
@@ -61,7 +64,7 @@ const Header = () => {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.color}>
                 <Toolbar>
                     <Link href="/" className={classes.title}>
                         <img src={logo} alt="Logo" />

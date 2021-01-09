@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
     paper: {
         minHeight: 'calc(100vh - 64px)',
         borderRadius: 0,
+        backgroundImage: 'url("/background.jpg")'
     },
     sidebar: {
         zIndex: 8,
@@ -46,7 +47,7 @@ const Chat = () => {
         <React.Fragment>
             <Header />
             <Grid container>
-                <Grid item md={4} className={classes.sidebar}>
+                <Grid item xs={4} className={classes.sidebar}>
                     <Paper className={classes.paper} square elevation={5}>
                         <Paper square>
                             <Tabs
@@ -71,7 +72,7 @@ const Chat = () => {
                         )}
                     </Paper>
                 </Grid>
-                <Grid item md={8}>
+                <Grid item xs={8}>
                     <ChatBox scope={scope} user={user} />
                 </Grid>
             </Grid>

@@ -25,11 +25,22 @@ const useStyles = makeStyles((theme) => ({
   list: {
     maxHeight: "calc(100vh - 112px)",
     overflowY: "auto",
+    backgroundImage: 'url("/background.jpg")'
   },
   avatar: {
     margin: theme.spacing(0, 3, 0, 1),
   },
+  avatarBackground: {
+    backgroundColor: randomColor()
+  },
 }));
+
+function randomColor() {
+  let hex = Math.floor(Math.random() * 0xFFFFFF);
+  let color = "#" + hex.toString(16);
+
+  return color;
+}
 
 const Users = (props) => {
   const classes = useStyles();
@@ -63,7 +74,7 @@ const Users = (props) => {
               button
             >
               <ListItemAvatar className={classes.avatar}>
-                <Avatar>{commonUtilites.getInitialsFromName(u.name)}</Avatar>
+                <Avatar className={classes.avatarBackground}>{commonUtilites.getInitialsFromName(u.name)}</Avatar>
               </ListItemAvatar>
               <ListItemText primary={u.name} />
             </ListItem>
